@@ -7,4 +7,9 @@ public class Raizes {
         this.raiz1 = raiz1;
         this.raiz2 = raiz2;
     }
+    
+    
+    public String toString(){
+        return String.format("Raiz 1 = %.2f, Raiz 2 = %.2f", raiz1, raiz2);     
+    }
 }
