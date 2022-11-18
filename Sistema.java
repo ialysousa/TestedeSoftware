@@ -9,22 +9,23 @@ public class Sistema implements FuncionalidadesIF {
   public Raizes calculaFuncaoSegundoGrau(double a, double b, double c) {
         double dis = b * b - 4.0 * a * c;  
         if(a < 0 || dis < 0.0) {
-          return 0;
+          return null;
         }
           
         if (dis> 0.0){  
             double x1 = (-b + Math.pow(dis, 0.5)) / (2.0 * a);  
             double x2 = (-b - Math.pow(dis, 0.5)) / (2.0 * a);  
-            System.out.println("As raizes são " + x1 + " and " + x2);  
+            //System.out.println("As raizes são " + x1 + " and " + x2);  
+            return new Raizes(x1,x2); 
         }else if (dis == 0.0){  
             double x1 = -b / (2.0 * a);  
-            System.out.println("Raiz eh " + x1);
-
+            //System.out.println("Raiz eh " + x1);
+            return new Raizes(x1,x1);
         }   
         else {
-          System.out.println("As raizes nao sao reais.");
+          return null;  //aqui não tem raizes reais.
         }   
-
+    
 
     } 
   
