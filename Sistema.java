@@ -1,10 +1,26 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 import javax.swing.RootPaneContainer;
 
 public class Sistema implements FuncionalidadesIF {
 
   private float resultadoAtual = 0;
+  Usuario usuario;
+  Main main;
+  List<Usuario> arrayUsuarios = new ArrayList<Usuario>();
+  Menu menu = new Menu();
 
-  public Usuario cadastraUsuario(String nome, String email, String senha){return null;}
+
+  public Usuario cadastraUsuario(String nome, String email, String senha){
+
+    usuario = new Usuario(nome, email, senha);
+    arrayUsuarios.add(usuario);
+
+    return usuario;
+  
+  }
 
   public Raizes calculaFuncaoSegundoGrau(double a, double b, double c) {
         double dis = b * b - 4.0 * a * c;  
@@ -29,7 +45,6 @@ public class Sistema implements FuncionalidadesIF {
 
     } 
   
-
   public boolean ehTriangulo(double angulo1, double angulo2, double angulo3){
       if(angulo1 <= 0 || angulo2 <= 0 || angulo3 <= 0) return false;
       else if(angulo1 > 180 || angulo2 > 180 || angulo3 > 180) return false;
@@ -127,15 +142,17 @@ public class Sistema implements FuncionalidadesIF {
           return "Não é um triângulo retângulo";
       }
   }
-
   
-
   public double perimetroRetangulo(double lado1, double lado2){
     double perimetro = lado1 + lado2; //+ lado3 + lado4;
     return perimetro;
   }
 
-  public double areaRetangulo(double lado1, double lado2){return 0;}
+  public double areaRetangulo(double lado1, double lado2){
+    
+    double area = lado1 * lado2;
+    return area;
+  }
 
   public double calculadora(String expressao){
 
@@ -191,7 +208,6 @@ public class Sistema implements FuncionalidadesIF {
       
       return perimetro;
   }
-
 
   public double distanciaEntreDoisPontos(double x1, double y1, double x2, double y2){
         double ans = 0;
